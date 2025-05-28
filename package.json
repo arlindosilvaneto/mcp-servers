@@ -1,5 +1,5 @@
 {
-  "name": "hello-world",
+  "name": "mcp-servers",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,6 +7,9 @@
     "build": "tsc",
     "dev": "ts-node src/server.ts",
     "test": "jest"
+  },
+  "bin": {
+    "mcp-servers": "src/server.js"
   },
   "keywords": [],
   "author": "",

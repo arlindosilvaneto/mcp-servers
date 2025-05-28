@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import express from "express";
 import dotenv from "dotenv";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";

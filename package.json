@@ -1,15 +1,16 @@
 {
   "name": "mcp-servers",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "1.0.8",
+  "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server.js",
     "build": "tsc",
     "dev": "ts-node src/server.ts",
-    "test": "jest"
+    "test": "jest",
+    "publish": "npm login && npm puslish"
   },
   "bin": {
-    "mcp-servers": "src/server.js"
+    "mcp-servers": "dist/server.js"
   },
   "keywords": [],
   "author": "",

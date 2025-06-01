@@ -1,9 +1,10 @@
+#!/usr/bin/env node
 import express from "express";
 import dotenv from "dotenv";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { registerTools } from "./modules/tools";
 import { registerPrompts } from "./modules/prompts";
-import { setupSSEEndpoint, setupMessageEndpoint } from "./modules/transports";
+import { setupSSEEndpoint, setupMessageEndpoint, setupStdIOServer } from "./modules/transports";
 
 dotenv.config();
 
@@ -16,13 +17,17 @@ const server = new McpServer({
 registerTools(server);
 registerPrompts(server);
 
-const app = express();
+// SSE Server
+// const app = express();
 
-// Setup endpoints
-setupSSEEndpoint(app, server);
-setupMessageEndpoint(app);
+// // Setup endpoints
+// setupSSEEndpoint(app, server);
+// setupMessageEndpoint(app);
 
-const port = parseInt(process.env.PORT || "4000", 10);
-app.listen(port, () => {
-  console.log(`MCP server is running on port ${port}`);
-});
+// const port = parseInt(process.env.PORT || "4000", 10);
+// app.listen(port, () => {
+//   console.log(`MCP server is running on port ${port}`);
+// });
+
+// StdIO Server
+setupStdIOServer(server);
